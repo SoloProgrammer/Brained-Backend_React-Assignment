@@ -123,8 +123,8 @@ router.put('/updateProfile/:current_avatar', upload.single('avatar'), fetchuser,
         if (req.file) {
 
             const DIR = "Upload_avatar";
-    
-            if(!req.params.current_avatar === "new_avatar") fs.unlinkSync(DIR + "/" + req.params.current_avatar);
+            
+            if(req.params.current_avatar !== "new_avatar") fs.unlinkSync(DIR + "/" + req.params.current_avatar);
 
             await User.findByIdAndUpdate(req.user.id, { $set: { ...req.body, avatar: req.file.filename } });
             success = true
