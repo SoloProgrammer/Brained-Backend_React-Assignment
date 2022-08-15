@@ -9,8 +9,6 @@ connectToMongo();
 
 app.use(express.json());
 
-// app.use(bodyparser.urlencoded({ extended: false }))
-
 app.use('/Upload_avatar',express.static('Upload_avatar'))
 
 const port = process.env.PORT || 8000
@@ -23,5 +21,5 @@ app.use('/api/',require('./Routes/user_route/User_controller'));
 app.use('/api/note',require('./Routes/notes_route/note_controller'));
 
 app.listen(port,()=>{
-    console.log(`shotpost app listening on port ${port}`)
+    console.log(`Notesapp app listening on port ${port}`)
 })
